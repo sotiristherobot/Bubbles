@@ -2,13 +2,11 @@
 //event listener for when bubble is clicked
 function bubbleClicked(){
   console.log("I'm clicked!");
-  $(this).addClass('animated bounceOutLeft');
-
 }
 
 //generates a single bubble
 function generateBubble(){
-  const bubble = document.createElement("div");
+  let bubble = document.createElement("div");
   bubble.className += "bubble";
 
   //get width of screen
@@ -17,6 +15,7 @@ function generateBubble(){
   //generate a random number between 0 and bubblesAreaWrapper width
   let randomWidth = Math.floor(Math.random() * ((screenWidth - 25) - 25 ) + 25);
   bubble.style.left = randomWidth + "px";
+  bubble.style.top = 0 + "px";
 
   //add event listener for mouse clicks
   bubble.addEventListener("click",bubbleClicked);
@@ -43,15 +42,34 @@ function generateBubbles(){
   return bubblesArray;
 }
 
-//animate bubbles
+
 function animate(bubblesArray){
 
+  let timer = setInterval(function(){
 
+    for (let i = 0; i < bubblesArray.length; i++) {
+      bubblesArray[i].style.top = (parseInt(bubblesArray[i].style.top) + 10) + "px";
+      if (parseInt(bubblesArray[i].style.top) > 400) {
+        clearInterval(timer);
+      }
 
+    }
 
+  },16);
 
+  // for (let i = 0; i < bubblesArray.length; i++){
+  //
+  //   bubblesArray[i].style.top  = (parseInt(bubblesArray[i].style.top) + 10) + "px";
+  //
+  //   console.log(bubblesArray[i]);
+  // }
+  //
+  // //console.log(bubblesArray);
+  // setTimeout(animate(bubblesArray), 10);
 
 }
 
+
 let bubblesArray = generateBubbles();
+
 animate(bubblesArray);
