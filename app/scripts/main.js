@@ -2,6 +2,8 @@
 //event listener for when bubble is clicked
 function bubbleClicked(){
   console.log("I'm clicked!");
+  $(this).addClass('animated bounceOutLeft');
+
 }
 
 //generates a single bubble
@@ -41,4 +43,15 @@ function generateBubbles(){
   return bubblesArray;
 }
 
-generateBubbles();
+//animate bubbles
+function animate(bubblesArray){
+
+
+
+
+
+
+}
+
+let bubblesArray = generateBubbles();
+animate(bubblesArray);
