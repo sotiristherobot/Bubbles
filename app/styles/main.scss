@@ -17,6 +17,13 @@ body {
   padding-bottom: 20px;
 }
 
+#bubbleAreaWrapper{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #0b97c4;
+}
+
 .bubble{
   background: red;
   height: 20px;
