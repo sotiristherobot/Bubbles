@@ -1,8 +1,17 @@
 
+//event listener for when bubble is clicked
+function bubbleClicked(){
+  console.log("I'm clicked!");
+}
+
 //generates a single bubble
 function generateBubble(){
   const bubble = document.createElement("div");
   bubble.className += "bubble";
+
+  //add event listener for mouse clicks
+  bubble.addEventListener("click",bubbleClicked);
+
   return bubble;
 }
 
