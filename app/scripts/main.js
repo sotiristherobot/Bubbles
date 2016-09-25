@@ -9,8 +9,16 @@ function generateBubble(){
   const bubble = document.createElement("div");
   bubble.className += "bubble";
 
+  //get width of screen
+  let screenWidth = document.getElementById("bubblesAreaWrapper").offsetWidth;
+
+  //generate a random number between 0 and bubblesAreaWrapper width
+  let randomWidth = Math.floor(Math.random() * ((screenWidth - 25) - 25 ) + 25);
+  bubble.style.left = randomWidth + "px";
+
   //add event listener for mouse clicks
   bubble.addEventListener("click",bubbleClicked);
+
 
   return bubble;
 }
